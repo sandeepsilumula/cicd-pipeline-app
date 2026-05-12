@@ -18,7 +18,6 @@ As a "Secret Mission" enhancement, the pipeline incorporates a production-style 
 3. **Approval:** A **Manual Approval Gate** pauses the pipeline for review.\
 4. **Deploy:** **AWS CodeDeploy** pushes the artifact to **EC2** using instructions from `appspec.yml`.\
 \
-![Architecture Diagram](./images/architecture-diagram.png) *(Note: Replace this link with your actual architecture screenshot)*\
 \
 ## \uc0\u55357 \u57056 \u65039  Technologies & Services Used\
 *   **Compute:** Amazon EC2 (t2.micro, Amazon Linux 2023)\
@@ -39,7 +38,7 @@ Configured a Node.js web application equipped with critical deployment files:\
     *   *Files Section:* Copies build outputs to `/home/ec2-user/app`.\
     *   *Hooks Section:* Manages the application lifecycle (stopping the old app, installing dependencies, and starting the new app as `root` to bind to port 80).\
 \
-![GitHub Repository Structure](./images/repo-structure.png) *(Note: Add a screenshot of your GitHub repo showing the appspec and buildspec)*\
+
 \
 ### Step 2: Configuring EC2 with IAM & CodeDeploy Agent\
 Provisioned an Amazon Linux 2023 EC2 instance to serve as the deployment target. \
@@ -51,12 +50,11 @@ Created a CodeDeploy Application and a corresponding Deployment Group.\
 *   Targeted the EC2 instance using specific EC2 tags.\
 *   Assigned a dedicated `CodeDeployServiceRole` (with the `AWSCodeDeployRole` policy) to grant the service permissions to execute deployments on the infrastructure.\
 \
-![CodeDeploy Configuration](./images/codedeploy.png) *(Note: Add a screenshot of your successful CodeDeploy target configuration)*\
+
 \
 ### Step 4: Assembling the 3-Stage CodePipeline\
 Constructed a V2 CodePipeline integrating the Source, Build, and Deploy stages. The pipeline automatically provisions an S3 artifact bucket to securely pass code payloads between stages.\
 \
-![CodePipeline Stages](./images/codepipeline.png) *(Note: Add a screenshot showing the green success checks on your pipeline)*\
 \
 ### Step 5: Verification & The Manual Approval Gate\
 To ensure production readiness, I implemented a **Manual Approval Gate** between the Build and Deploy stages. This enforces a controlled checkpoint where a team lead can review build logs before releasing to the live environment.\
