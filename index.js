@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
     <body>
       <h1>Hello from CodePipeline!</h1>
       <p>This app was deployed automatically via AWS CodePipeline.</p>
-      <div class="pipeline-badge">Pipeline Version 1.0</div>
+      <div class="pipeline-badge">Pipeline Version 2.0</div>
     </body>
     </html>
   `);
