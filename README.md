@@ -1,3 +1,5 @@
+<div style="background-color: #0f172a; color: #f8fafc; padding: 30px; border-radius: 8px; font-family: sans-serif;">
+
 # 🚀 AWS CI/CD Pipeline: Automating Node.js Deployments
 
 ## 📖 Project Overview
@@ -70,3 +72,4 @@ Successfully triggered the pipeline via a Git push and verified the live deploym
 Successfully completing this project solidified my understanding of AWS-native CI/CD workflows. As I continue to upskill in CloudOps and Infrastructure as Code (IaC), my next major objective is to recreate and automate this entire infrastructure stack using **Terraform**.
 
  **Author:** Sandeep Silumula, Senior Incident/Operations Manager
+ </div>
